@@ -1,0 +1,94 @@
+Expected failures when new regressions run against PRIOR 1.11.5 code. These are reproduction evidence, not failures of 1.11.6.
+
+✖ mixed thousands separators rejected without altering valid dot/comma groups (3.685821ms)
+✖ data-name/data-href attributes are not treated as actual form/catalog attributes (1.062742ms)
+✖ upstream cookie deletion expires reader instead of reusing old cookie (8.996706ms)
+✖ Excel unavailable ALL with empty reason stays explicit rather than an empty cell (11.061599ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 0
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 195.585796
+
+✖ failing tests:
+
+test at ../../audit-baseline-v1115/atlas-control-suite/tests/audit-regressions.test.js:3:1
+✖ mixed thousands separators rejected without altering valid dot/comma groups (3.685821ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (/workspace/scratch/4bf64814f13f/audit-baseline-v1115/atlas-control-suite/tests/audit-regressions.test.js:3:153)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /PT_VALUE_INVALID/,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at ../../audit-baseline-v1115/atlas-control-suite/tests/audit-regressions.test.js:4:1
+✖ data-name/data-href attributes are not treated as actual form/catalog attributes (1.062742ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (/workspace/scratch/4bf64814f13f/audit-baseline-v1115/atlas-control-suite/tests/audit-regressions.test.js:4:101)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /FORM_NOT_FOUND/,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at ../../audit-baseline-v1115/atlas-control-suite/tests/audit-regressions.test.js:5:1
+✖ upstream cookie deletion expires reader instead of reusing old cookie (8.996706ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /SESSION_EXPIRED/. Input:
+  
+  'Error: MARKET_CATALOG_EMPTY'
+  
+      at async TestContext.<anonymous> (/workspace/scratch/4bf64814f13f/audit-baseline-v1115/atlas-control-suite/tests/audit-regressions.test.js:5:378)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: MARKET_CATALOG_EMPTY
+        at Object.prepareMarket (/workspace/scratch/4bf64814f13f/audit-baseline-v1115/atlas-control-suite/agent-pt.js:30:60)
+        at async waitForActual (node:assert:646:5)
+        at async strict.rejects (node:assert:769:25)
+        at async TestContext.<anonymous> (/workspace/scratch/4bf64814f13f/audit-baseline-v1115/atlas-control-suite/tests/audit-regressions.test.js:5:378)
+        at async Test.run (node:internal/test_runner/test:1389:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:960:7),
+    expected: /SESSION_EXPIRED/,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at ../../audit-baseline-v1115/atlas-control-suite/tests/audit-regressions.test.js:6:1
+✖ Excel unavailable ALL with empty reason stays explicit rather than an empty cell (11.061599ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok((workbook.match(/BELUM TERSEDIA/g)||[]).length>=2)
+  
+      at TestContext.<anonymous> (/workspace/scratch/4bf64814f13f/audit-baseline-v1115/atlas-control-suite/tests/audit-regressions.test.js:6:228)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
